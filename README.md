@@ -2,7 +2,9 @@
 
 ## StringBuilder
 
-[strings/builders/StringBuilder.js](https://github.com/fw3/js/blob/preopen/strings/builders/StringBuilder.js)
+[strings/builders/StringBuilder.js](https://github.com/fw3/js/blob/preopen/builders/strings/StringBuilder.js)
+
+import対応版：[exportable/strings/builders/StringBuilder.js](https://github.com/fw3/js/blob/preopen/exportable/builders/strings/StringBuilder.js)
 
 `sprintf`よりも簡単に判りやすいフォーマットから文字列を生成できます。
 
