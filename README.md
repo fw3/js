@@ -47,7 +47,7 @@ HTML要素をできるだけなめらかに構築出来るように設計したH
 #### 単純な形：`<br>`
 
 ```javascript
-let br1 = HtmlElementBuilder.factory("br") // brタグとしてのHTMLEelementBuilderを構築します。
+let br1 = HtmlElementBuilder.factory("br") // brタグとしてのHTMLElementBuilderを構築します。
 doument.appendChild(br1.build());           // buildメソッドを実行することでHTMLElementが生成されます。
 
 let br2 = HtmlElementBuilder.br().build(); // 上記の糖衣構文
