@@ -47,31 +47,31 @@ HTML要素をできるだけなめらかに構築出来るように設計したH
 #### 単純な形：`<br>`
 
 ```javascript
-let br1 = HtmlElementBuilder::factory("br") // brタグとしてのHTMLEelementBuilderを構築します。
+let br1 = HtmlElementBuilder.factory("br") // brタグとしてのHTMLElementBuilderを構築します。
 doument.appendChild(br1.build());           // buildメソッドを実行することでHTMLElementが生成されます。
 
-let br2 = HtmlElementBuilder::br().build(); // 上記の糖衣構文
+let br2 = HtmlElementBuilder.br().build(); // 上記の糖衣構文
 doument.appendChild(br2.build());
 ```
 
 #### インプット要素を作ってみる：`<input type="text">`
 
 ```javascript
-let input1  = HtmlElementBuilder::input().type("text").build(); // inputタグでtext typeなHtmlElementBuilderが生成されます。
+let input1  = HtmlElementBuilder.input().type("text").build(); // inputタグでtext typeなHtmlElementBuilderが生成されます。
 doument.appendChild(input1.build());                            // buildをお忘れなく
 
-let input2  = HtmlElementBuilder::inputText().build();          // 上記の糖衣構文
+let input2  = HtmlElementBuilder.inputText().build();          // 上記の糖衣構文
 doument.appendChild(input2.build());
 ```
 
 #### 属性の多いinput：`<input type="number" name="width" value="30" min="1"  max="120">`
 
 ```javascript
-let input3  = HtmlElementBuilder::inputNumber().name("width").value("30").min("1").max("120");
+let input3  = HtmlElementBuilder.inputNumber().name("width").value("30").min("1").max("120");
 doument.appendChild(input3.build());
 
 // 次の形で構築する事も出来ます。
-let input4  = HtmlElementBuilder::inputNumber({
+let input4  = HtmlElementBuilder.inputNumber({
     name:   "width",
     value:  "30",
     min:    "1",
@@ -83,7 +83,7 @@ doument.appendChild(input4.build());
 #### 単純に中に文字列があるだけの要素ならこういう記述も可能です。：`<div>単純な</div>`
 
 ```javascript
-let div = HtmlElementBuilder::div("単純な");
+let div = HtmlElementBuilder.div("単純な");
 doument.appendChild(div.build());               // 内部ではdocument.createTextNode()で構築しているため実際安全
 ```
 
@@ -92,7 +92,7 @@ doument.appendChild(div.build());               // 内部ではdocument.createTe
 #### eventの追加は次の形で簡単におこなえます。
 
 ```javascript
-let eventable1  = HtmlElementBuilder::inputText().event("click", function (event) {
+let eventable1  = HtmlElementBuilder.inputText().event("click", function (event) {
     console.log("clickされた");
 });
 doument.appendChild(eventable1.build());
@@ -101,7 +101,7 @@ doument.appendChild(eventable1.build());
 #### 複数の同内容のイベントを簡単に設置することもできます。
 
 ```javascript
-let eventable2  = HtmlElementBuilder::inputText().event(["keyup", "mouseup"], function (event) {
+let eventable2  = HtmlElementBuilder.inputText().event(["keyup", "mouseup"], function (event) {
     console.log("打鍵もクリックも検出したい場合ってあるよね");
 });
 doument.appendChild(eventable2.build());
@@ -110,7 +110,7 @@ doument.appendChild(eventable2.build());
 #### 設定したイベントを`build`時に実行させる事もできます。
 
 ```javascript
-let eventable1  = HtmlElementBuilder::inputText().event("click", function (event) {
+let eventable1  = HtmlElementBuilder.inputText().event("click", function (event) {
     console.log("clickされてないけどされた");
 }).dispatchEvent("click");
 doument.appendChild(eventable1.build());
@@ -121,7 +121,7 @@ doument.appendChild(eventable1.build());
 #### 要素単位での検証が行えます。
 
 ```javascript
-let validatableElement1	= HtmlElementBuilder::inputNumber({
+let validatableElement1	= HtmlElementBuilder.inputNumber({
     name:   "width",
     value:  "30",
     min:    "1",
@@ -149,7 +149,7 @@ doument.appendChild(validatableElement1.build());
 #### 検証単位でのメッセージフォーマットの差し替えも行えます。
 
 ```javascript
-let validatableElement2	= HtmlElementBuilder::inputNumber({
+let validatableElement2	= HtmlElementBuilder.inputNumber({
     name:   "width",
     value:  "30",
     min:    "1",
